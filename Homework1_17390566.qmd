@@ -1,0 +1,101 @@
+---
+title: "Homework 1"
+author: "Conall Gordon 17390566"
+format: pdf
+editor: visual
+execute: 
+  eval: true
+  echo: false
+  message: false
+  warning: false
+---
+
+Below I will introduce the data set which is available in base R, named '*trees*'. I will then investigate the data by performing a simple numerical summary and a basic plot.
+
+## Introduction to "Trees" Data
+
+The '*trees*' data consists of the measurements of **31 felled black cherry trees**. The measurements recorded include the **diameter** (labelled '**girth**'), **height** and **volume** of the timber. The girth of each tree is measured at 4 ft 6 in above the ground.
+
+The following units were used for each measurement:
+
+-   **Height:** feet
+
+-   **Girth:** inches
+
+-   **Volume:** cubic feet
+
+## Data Exploration
+
+Below I perform a basic exploration of the data. The first rows can be seen below:
+
+```{r}
+#| label: Load and print data head
+
+data("trees") #Load data
+
+head(trees) #Print first rows of dataset
+
+```
+
+\newpage
+
+A numerical summary of the data:
+
+```{r}
+#| label: Numerical summary
+
+summary(trees) #Print simple numerical summary
+```
+
+We can see the numerical summary above. The following observations can be made:
+
+-   **Girth:**
+
+    -   The values **span** from 8.30 to 20.60 inches.
+
+    -   The **mean** value is 13.25 inches.
+
+-   **Height:**
+
+    -   The values **span** from 63 to 87 feet.
+
+    -   The **mean** value is 76 feet.
+
+-   **Volume:**
+
+    -   The values **span** from 10.20 to 77.00 cubic feet.
+
+    -   The **mean** value is 30.17 cubic feet.
+
+Note that the volume measurements span a wide range relative to the other measurements, likely due to the dimensionality of the volume measurement.
+
+\newpage
+
+## Scatter Plot
+
+Below, I plot the **volume** of the felled trees against their **girth**. This plot allows for the visualization of the relationship between the volume and girth of the trees.
+
+```{r}
+#| label: Scatter plot of data
+#| fig.cap: "Scatter plot of Tree Volume against Tree Girth"
+
+
+#Load the ggplot2 package
+library(ggplot2)
+
+#Scatter plot using ggplot2
+ggplot(trees, aes(x = Girth, y = Volume)) +
+  geom_point(color = "red", shape = 19) + #Solid circle in red
+  labs(
+    title = "Scatter plot of Volume vs. Tree Girth", #Title
+    x = "Girth (inches)",  #x-label
+    y = "Volume (cubic feet)"  #y-label
+  ) +
+  scale_x_continuous(limits = c(0, max(trees$Girth))) + #Begin x-axis at 0
+  scale_y_continuous(limits = c(0, max(trees$Volume))) + #Begin y-axis at 0
+  theme_minimal() #Set theme
+
+
+```
+
+We can see above that there is a **clear positive relationship** between the **volume** of the tree timber and the **girth**. We see that as the girth increases, the volume can also be seen to increase. This relationship would be **expected**. This relationship could be explored further, for example the presence of a linear or quadratic relationship could be investigated.
