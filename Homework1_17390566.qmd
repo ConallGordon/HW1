@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-Below I will introduce the data set which is available in base R, named '*trees*'. I will then investigate the data by performing a simple numerical summary and a basic plot.
+Below I will introduce the data set which is available in base R, named '*trees*'. I will then investigate the data by performing a simple numerical summary and a basic plot. This file has been shared publicly on GitHub.
 
 ## Introduction to "Trees" Data
 
