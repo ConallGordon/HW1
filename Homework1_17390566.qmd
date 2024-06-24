@@ -44,7 +44,7 @@ A numerical summary of the data:
 ```{r}
 #| label: Numerical summary
 
-summary(trees) #Print simple numerical summary
+summary(trees) #Print simple numerical summary of data
 ```
 
 We can see the numerical summary above. The following observations can be made:
